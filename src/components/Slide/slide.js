@@ -3,11 +3,9 @@ import React from 'react'
 const Slide = ({ image }) => {
   const styles = {
     backgroundImage: `url(${image.webformatURL})`,
-    height: '100px',
-    width: '100px',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: '50% 60%'
+    backgroundPosition: '50% 50%'
   }
   return <div className="slide" style={styles}></div>
 }

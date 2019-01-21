@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
+
+/*
+GENERAL STYLES
+ */
+body {
+    font-family: 'Ropa Sans', sans-serif;
+}
+
+h3 {
+    font-family: 'Ropa Sans', sans-serif;
+}
+
+/*
+SLIDE
+ */
+.slide {
+    height: 200px;
+    width: 20%;
+    display: inline-block;
+}
+
+/*
+ ARROW
+ */
+.arrow.left {
+    transform: rotate(180deg);
+}
