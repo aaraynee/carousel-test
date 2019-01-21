@@ -7,7 +7,7 @@ const Slide = ({ image }) => {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: '50% 50%'
   }
-  return <div className="slide" style={styles}></div>
+  return <div className="slide uk-width-1-5@s uk-width-1-1" style={styles}></div>
 }
 
 export default Slide

@@ -9,7 +9,7 @@ export default class Carousel extends Component {
 
     this.state = {
       slides: [],
-      currentImage: 0
+      currentImage: 2
     };
   }
 
@@ -20,16 +20,25 @@ export default class Carousel extends Component {
 
   render () {
     return (
-      <div className="carousel">
-          {      console.log(this.state.currentImage)
-          }
-        {
-          this.state.slides && this.state.slides.map((image, i) => (
-              (i >= this.state.currentImage) && (i < this.state.currentImage + 5) && <Slide key={i} image={image}/>
-          ))
-        }
-        <Arrow direction="left" onSlideAction={ () => this._slideAction(-1) } />
-        <Arrow direction="right" onSlideAction={ () => this._slideAction(1) } />
+      <div>
+        <div className="carousel uk-visible@s">
+            {
+                this.state.slides && this.state.slides.map((image, i) => (
+                    (i <= this.state.currentImage + 2) && (i >= this.state.currentImage - 2) && <Slide key={i} image={image}/>
+                ))
+            }
+            { this.state.currentImage > 2 && <Arrow direction="left" onSlideAction={ () => this._slideAction(-1) } /> }
+            { this.state.currentImage < (this.state.slides.length - 1) - 2 && <Arrow direction="right" onSlideAction={ () => this._slideAction(1) } /> }
+        </div>
+        <div className="carousel uk-hidden@s">
+            {
+                this.state.slides && this.state.slides.map((image, i) => (
+                    (i == this.state.currentImage - 2) && <Slide key={i} image={image}/>
+                ))
+            }
+            { this.state.currentImage - 2 > 0 && <Arrow direction="left" onSlideAction={ () => this._slideAction(-1) } /> }
+            { this.state.currentImage - 2 < (this.state.slides.length - 1) && <Arrow direction="right" onSlideAction={ () => this._slideAction(1) } /> }
+        </div>
       </div>
     );
   }
@@ -46,7 +55,7 @@ export default class Carousel extends Component {
   _slideAction (newSlide) {
       const last = this.state.slides.length - 1;
       const { currentImage } = this.state;
-      const reset = currentImage + 4 === last || currentImage + newSlide <= 0;
+      const reset = null //currentImage + 4 === last || currentImage + newSlide <= 0;
       const index =  reset ? 0 : currentImage + newSlide;
 
       this.setState({currentImage: index})

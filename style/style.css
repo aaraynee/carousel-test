@@ -16,13 +16,19 @@ SLIDE
  */
 .slide {
     height: 200px;
-    width: 20%;
     display: inline-block;
 }
 
 /*
  ARROW
  */
+.arrow {
+    display: inline-block;
+}
 .arrow.left {
     transform: rotate(180deg);
+    float: left;
+}
+.arrow.right {
+    float: right;
 }
